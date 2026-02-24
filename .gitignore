@@ -1,0 +1,17 @@
+# Spring Boot
+backend-spring/target/
+backend-spring/*.jar
+
+# Flutter
+mobile-flutter/.dart_tool/
+mobile-flutter/build/
+mobile-flutter/.packages
+
+# Angular
+web-angular/node_modules/
+web-angular/dist/
+
+# IDE (IntelliJ, VS Code)
+.idea/
+.vscode/
+*.iml
