@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
-// Vérifie bien que le chemin remonte correctement vers ton fichier de constantes
-import '../../core/constants/app_colors.dart'; 
+import '../../core/constants/app_colors.dart';
 
-class BoutonPersonnalise extends StatelessWidget {
+class BoutonPill extends StatelessWidget {
   final String texte;
-  final VoidCallback surAppui;
+  final VoidCallback action;
 
-  const BoutonPersonnalise({super.key, required this.texte, required this.surAppui});
+  const BoutonPill({super.key, required this.texte, required this.action});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        // Cette ligne ne sera plus rouge une fois app_colors.dart créé
-        backgroundColor: AppColors.primaryYellow, 
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      onPressed: surAppui,
-      child: Text(
-        texte,
-        style: const TextStyle(
-          color: Colors.black, 
-          fontWeight: FontWeight.bold, 
-          fontSize: 16
+    return SizedBox(
+      width: double.infinity,
+      height: 55,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primaryYellow,
+          foregroundColor: Colors.black,
+          shape: const StadiumBorder(),
+          elevation: 2,
         ),
+        onPressed: action,
+        child: Text(texte, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
       ),
     );
   }
