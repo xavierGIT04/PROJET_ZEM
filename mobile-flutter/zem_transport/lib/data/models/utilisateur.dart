@@ -1,17 +1,28 @@
-enum Role { passager, conducteur, regulateur }
+class RegisterData {
+  final String nom;
+  final String prenom;
+  final String password;
+  final String role; // "PASSAGER" ou "CONDUCTEUR"
+  final String? numeroPermis;
+  final String? typeVehicule; // "ZEM" ou "TAXI"
 
-class Utilisateur {
-  final String id;
-  final String nomComplet;
-  final String telephone;
-  final Role role;
-  final bool kycValide;
-
-  Utilisateur({
-    required this.id,
-    required this.nomComplet,
-    required this.telephone,
+  RegisterData({
+    required this.nom,
+    required this.prenom,
+    required this.password,
     required this.role,
-    this.kycValide = false,
+    this.numeroPermis,
+    this.typeVehicule,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      "nom": nom,
+      "prenom": prenom,
+      "password": password,
+      "role": role,
+      "numeroPermis": numeroPermis,
+      "typeVehicule": typeVehicule,
+    };
+  }
 }
